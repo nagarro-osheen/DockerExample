@@ -1,5 +1,5 @@
 node('master'){
-    docker.withRegistry('https://registry.hub.docker.com', 'osheen.gulati@nagarro.com:nagarro@123') {
+    docker.withRegistry('https://registry.hub.docker.com', 'osheen.gulati@nagarro.com') {
     
         git url: "https://github.com/nagarro-osheen/DockerExample.git", credentialsId: 'osheen.gulati@nagarro.com:nagarro@123'
         sh "git rev-parse HEAD > .git/commit-id"
