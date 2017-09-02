@@ -1,7 +1,7 @@
 node('master'){
-    docker.withRegistry('https://registry.hub.docker.com', 'osheen.gulati@nagarro.com') {
+    docker.withRegistry('https://registry.hub.docker.com', 'osheen-docker') {
     
-        git url: "https://github.com/nagarro-osheen/DockerExample.git", credentialsId: 'osheen.gulati@nagarro.com:nagarro@123'
+        git url: "https://github.com/nagarro-osheen/DockerExample.git", credentialsId: '41248c1e-b278-466e-9a3e-4881c05245f9'
         sh "git rev-parse HEAD > .git/commit-id"
         def commit_id = readFile('.git/commit-id').trim()
         println commit_id
