@@ -7,12 +7,10 @@ node('master'){
         println commit_id
     
         stage "Build docker image"
-        sh "sudo docker.build -t \"dockerexample\""
-	sh "echo 'osboxes.org' | sudo -S command"
+        sh "docker build -t \"dockerexample\" ."
 
 	stage "Run docker image"
     	sh "docker run dockerexample"
-        sh "echo osboxes.org | sudo -S"
 
         stage "publish"
         app.push 'master'
