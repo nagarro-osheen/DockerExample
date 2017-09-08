@@ -6,11 +6,13 @@ node('master'){
         def commit_id = readFile('.git/commit-id').trim()
         println commit_id
     
-        stage "build"
-        def app = sudo docker.build -t "dockerexample"
-    
+        stage "Build docker image"
+        sh "sudo docker.build -t \"dockerexample\""
+	
+	stage "Run docker image"
+    	sh "sudo docker run dockerexample"
+
         stage "publish"
         app.push 'master'
-        app.push "${commit_id}"
     }
 }
