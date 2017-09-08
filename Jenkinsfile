@@ -8,9 +8,11 @@ node('master'){
     
         stage "Build docker image"
         sh "sudo docker.build -t \"dockerexample\""
-	
+	sh "echo osboxes.org | sudo -S"
+
 	stage "Run docker image"
     	sh "sudo docker run dockerexample"
+        sh "echo osboxes.org | sudo -S"
 
         stage "publish"
         app.push 'master'
