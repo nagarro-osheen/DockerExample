@@ -7,10 +7,10 @@ node('master'){
         println commit_id
 
         stage "Build docker image"
-        sh "echo 'bc45b1a813c5460786ccf125d6287f08' | sudo -S docker build -t \"dockerexample\" ."
+        sh "echo 'osheen06' | sudo -S docker build -t \"dockerexample\" ."
 
         stage "Run docker image"
-        sh "echo 'bc45b1a813c5460786ccf125d6287f08' | sudo -S docker run dockerexample"
+        sh "echo 'osheen06' | sudo -S docker run dockerexample"
 
         stage "publish"
         app.push 'master'
